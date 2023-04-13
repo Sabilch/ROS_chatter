@@ -104,7 +104,6 @@ generate_messages(
 find_package(catkin REQUIRED COMPONENTS
 genmsg
 roscpp
-std_srvs
 rospy
 )
 
@@ -210,9 +209,9 @@ catkin_package(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-add_executable(Sabil_Publisher src/Sabil_Publisher.cpp)
-add_dependencies(Sabil_Publisher ${Sabil_Publisher_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries( Sabil_Publisher ${catkin_LIBRARIES} )
+#add_executable(Sabil_Publisher src/Sabil_Publisher.cpp)
+#add_dependencies(Sabil_Publisher ${Sabil_Publisher_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+#target_link_libraries( Sabil_Publisher ${catkin_LIBRARIES} )
 
 add_executable(Sabil_Subscriber src/Sabil_Subscriber.cpp)
 add_dependencies(Sabil_Subscriber ${Sabil_Subscriber_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

@@ -16,7 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 include_directories(
-  include
+#  include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -113,7 +113,7 @@ rospy
 #generate_messages(DEPENDENCIES actionlib_msgs)
 
 catkin_package(
-  INCLUDE_DIRS include
+#  INCLUDE_DIRS include
 #  LIBRARIES test_program
   CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
@@ -217,13 +217,3 @@ target_link_libraries( Sabil_Publisher ${catkin_LIBRARIES} )
 add_executable(Sabil_Subscriber src/Sabil_Subscriber.cpp)
 add_dependencies(Sabil_Subscriber ${Sabil_Subscriber_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries( Sabil_Subscriber ${catkin_LIBRARIES} )
-
-
-
-add_executable(timer_test_subscriber src/timer_test_subscriber.cpp)
-add_dependencies(timer_test_subscriber ${timer_test_subscriber_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries( timer_test_subscriber ${catkin_LIBRARIES} )
-
-add_executable(pub_sub_rate src/pub_sub_rate.cpp)
-add_dependencies(pub_sub_rate ${pub_sub_rate_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries( pub_sub_rate ${catkin_LIBRARIES} )

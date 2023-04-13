@@ -57,22 +57,13 @@ include_directories(
 ## Generate messages in the 'msg' folder
  add_message_files(
    FILES
-   person_data.msg
-   players.msg
-  
+   person_data.msg  
  )
 
 ## Generate services in the 'srv' folder
- add_service_files(
-   FILES
-   AddTwoInts.srv
-   initPlayer.srv
- )
+
 
 ## Generate actions in the 'action' folder
-#add_action_files (
-#  FILES 
-#  initiateIDPlayer.action)
 
 ## Generate added messages and services with any dependencies listed here
 generate_messages(
@@ -218,6 +209,7 @@ catkin_package(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
 add_executable(Sabil_Publisher src/Sabil_Publisher.cpp)
 add_dependencies(Sabil_Publisher ${Sabil_Publisher_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries( Sabil_Publisher ${catkin_LIBRARIES} )
@@ -226,30 +218,7 @@ add_executable(Sabil_Subscriber src/Sabil_Subscriber.cpp)
 add_dependencies(Sabil_Subscriber ${Sabil_Subscriber_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries( Sabil_Subscriber ${catkin_LIBRARIES} )
 
-add_executable(addition_service_node src/addition_service_node.cpp)
-add_dependencies(addition_service_node ${addition_service_node_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries( addition_service_node ${catkin_LIBRARIES} )
 
-add_executable(addition_client_node src/addition_client_node.cpp)
-add_dependencies(addition_client_node ${addition_client_node_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries( addition_client_node ${catkin_LIBRARIES} )
-
-add_executable(code_node src/core_node.cpp)
-add_dependencies(code_node ${code_node_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries( code_node ${catkin_LIBRARIES} )
-
-add_executable(player_node src/player_node.cpp)
-add_dependencies(player_node ${player_node_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries( player_node ${catkin_LIBRARIES} )
-
-target_link_libraries( player_node
- ncurses 
- ${catkin_LIBRARIES} 
- )
-
-add_executable(timer_test_publisher src/timer_test_publisher.cpp)
-add_dependencies(timer_test_publisher ${timer_test_publisher_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries( timer_test_publisher ${catkin_LIBRARIES} )
 
 add_executable(timer_test_subscriber src/timer_test_subscriber.cpp)
 add_dependencies(timer_test_subscriber ${timer_test_subscriber_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

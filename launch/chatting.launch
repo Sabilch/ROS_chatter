@@ -1,4 +1,3 @@
 <launch>
     <node pkg="test_program" type="Sabil_Publisher" name="Sabil_Publisher" output="screen"> </node>
-    <node pkg="test_program" type="Sabil_Subscriber" name="Sabil_Subscriber" output="screen"> </node>
 </launch>

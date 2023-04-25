@@ -93,17 +93,11 @@ add_executable(Sabil_Publisher src/Sabil_Publisher.cpp)
 add_dependencies(Sabil_Publisher ${Sabil_Publisher_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries( Sabil_Publisher ${catkin_LIBRARIES} )
 
-add_executable(Sabil_Subscriber src/Sabil_Subscriber.cpp)
-add_dependencies(Sabil_Subscriber ${Sabil_Subscriber_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries( Sabil_Subscriber ${catkin_LIBRARIES} )
 
  install(TARGETS Sabil_Publisher
    RUNTIME DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
  )
  
- install(TARGETS Sabil_Subscriber
-   RUNTIME DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
- )
  
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 install(DIRECTORY launch/

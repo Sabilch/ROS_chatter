@@ -43,7 +43,8 @@ include_directories(
 ##   * add a build_depend and a exec_depend tag for each package in MSG_DEP_SET
 ##   * If MSG_DEP_SET isn't empty the following dependency has been pulled in
 ##     but can be declared for certainty nonetheless:
-##     * add a exec_depend tag for "message_runtime"
+##     * add a exec_depend tag for "message_
+"
 ## * In this file (CMakeLists.txt):
 ##   * add "message_generation" and every package in MSG_DEP_SET to
 ##     find_package(catkin REQUIRED COMPONENTS ...)
@@ -170,9 +171,20 @@ catkin_package(
 
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
-# install(TARGETS ${PROJECT_NAME}_node
-#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+ install(TARGETS ${Sabil_Publisher
+   RUNTIME DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+ )
+ 
+ install(TARGETS ${Sabil_Subscriber
+   RUNTIME DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+ )
+ 
+## Mark other files for installation (e.g. launch and bag files, etc.)
+install(DIRECTORY launch/
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+  FILES_MATCHING
+  PATTERN "*.launch"
+)
 
 ## Mark libraries for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_libraries.html
@@ -209,9 +221,9 @@ catkin_package(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-#add_executable(Sabil_Publisher src/Sabil_Publisher.cpp)
-#add_dependencies(Sabil_Publisher ${Sabil_Publisher_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-#target_link_libraries( Sabil_Publisher ${catkin_LIBRARIES} )
+add_executable(Sabil_Publisher src/Sabil_Publisher.cpp)
+add_dependencies(Sabil_Publisher ${Sabil_Publisher_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries( Sabil_Publisher ${catkin_LIBRARIES} )
 
 add_executable(Sabil_Subscriber src/Sabil_Subscriber.cpp)
 add_dependencies(Sabil_Subscriber ${Sabil_Subscriber_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

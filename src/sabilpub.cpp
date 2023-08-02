@@ -1,23 +1,22 @@
 #include "ros/ros.h"
-#include "sabilpub/person_data.h"
+//#include "sabilpub/person_data.h"
 
-
-
+#include <std_msgs/String.h>
 
 int main (int args, char **argv) {
     ros::init(args, argv, "sabilpub");
     ros::NodeHandle n;
 
-    ros::Publisher topic_pub = n.advertise<sabilpub::person_data>("/sabilData",1000);
-    ros::Rate loop_rate(1);
+    ros::Publisher topic_pub = n.advertise<std_msgs::String>("/sabilData",1);
+
+    ros::Rate loop_rate(5);
     
     while(ros::ok()) {
-        sabilpub::person_data person_data;
-        person_data.name = "sabil";
-        person_data.age = 52;
-        person_data.color = "green";
+        std_msgs::String msg;
 
-        topic_pub.publish(person_data);
+         msg.data = "here's the publisher";
+
+        topic_pub.publish(msg);
         ros::spinOnce();
         loop_rate.sleep();
 
